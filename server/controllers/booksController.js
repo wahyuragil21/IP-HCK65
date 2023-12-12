@@ -11,7 +11,7 @@ module.exports = class BooksController{
         //         key: API_KEY
         //     },
         // });
-           res.status(200).json(data.items)
+           res.status(200).json(data)
         } catch (error) {
             console.log(error);
         }
