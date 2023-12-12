@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { hasPassword } = require('../helpers/bcrypt');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -11,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasMany(models.ReadingList, {foreignKey : 'UserId'})
     }
   }
   User.init({
@@ -52,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     email: {
       type : DataTypes.STRING,
-      allowNull : true,
+      allowNull : false,
       isunique : {
         msg : 'Email is already exist'
       },
