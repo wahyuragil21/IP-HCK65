@@ -3,6 +3,7 @@ const {
   Model
 } = require('sequelize');
 const { hasPassword } = require('../helpers/bcrypt');
+const {main} = require('../helpers/nodemailer');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -87,6 +88,9 @@ module.exports = (sequelize, DataTypes) => {
     hooks :{
       beforeCreate : (user, options) => {
         user.password = hasPassword(user.password)
+      },
+      afterCreate : (user, options) => {
+         main(user.email)
       }
     },
     sequelize,
