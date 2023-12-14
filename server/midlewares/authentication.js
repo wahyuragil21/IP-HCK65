@@ -1,3 +1,4 @@
+const { verifyToken } = require('../helpers/jwt');
 const {User} = require('../models')
 async function authentication(req, res, next) {
     try {
@@ -10,6 +11,7 @@ async function authentication(req, res, next) {
         token = token.slice(7)
 
         const payload = verifyToken(token)
+        
 
         const user = await User.findByPk(payload.id)
 

@@ -16,7 +16,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   ReadingList.init({
     title: DataTypes.STRING,
-    UserId: DataTypes.INTEGER
+    UserId: DataTypes.INTEGER,
+    BookId : DataTypes.STRING,
+    imageUrl : DataTypes.TEXT,
+    author : DataTypes.STRING,
+    publisher : DataTypes.STRING,
+    publisherDate : DataTypes.STRING,
+    pages : DataTypes.STRING,
+    linkReading : DataTypes.STRING
   }, {
     sequelize,
     modelName: 'ReadingList',

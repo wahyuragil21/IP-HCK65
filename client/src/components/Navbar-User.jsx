@@ -1,5 +1,5 @@
 import { MdOutlineLogout } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export default function NavbarUser() {
 
     const navigate = useNavigate()
@@ -13,10 +13,10 @@ export default function NavbarUser() {
             <nav
                 className=" bg-black w-full max-w-screen-xl px-6 py-3 mt-2 mx-auto text-white bg-border shadow-md rounded-xl border-white/80 backdrop-blur-2xl backdrop-saturate-200">
                 <div className="flex items-center justify-between text-white">
-                    <a href="#"
+                    <Link to="/"
                         className="mr-4 block cursor-pointer py-1.5 font-sans text-base font-semibold leading-relaxed tracking-normal text-inherit antialiased">
                         Library of Programmer
-                    </a>
+                    </Link>
                     <div className="hidden lg:block">
                         <ul className="flex flex-row gap-2 my-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
                             <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-white">
