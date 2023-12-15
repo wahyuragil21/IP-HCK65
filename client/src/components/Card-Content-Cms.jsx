@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react"
 import Axios from "axios"
+import { useSelector, useDispatch } from "react-redux"
+import { fetchBooks } from "../features/books/asyncAction"
 export default function CardContentCms() {
+    // const dispath = useDispatch()
+    // const books = useSelector((state) => state.books.books)
+    // console.log(books);
+
+
     const [books, setBooks] = useState([])
-  
-    
     const fetchBooks = async () => {
         try {
             const { data } = await Axios.get(`http://localhost:3000/reading-list`, {
@@ -33,6 +38,7 @@ export default function CardContentCms() {
 
 
     useEffect(() => {
+        // dispath(fetchBooks())
         fetchBooks()
     }, [])
 

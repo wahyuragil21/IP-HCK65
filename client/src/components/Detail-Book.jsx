@@ -1,6 +1,8 @@
 import Axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
+import {toast } from 'react-toastify';
+
 
 export default function DetailBook() {
     const [books, setBooks] = useState({})
@@ -17,14 +19,40 @@ export default function DetailBook() {
         }
     }
 
+    const isLogin = localStorage.getItem('access_token')
+   
     const handleAddBooks = async (event) => {
         event.preventDefault()
         try {
-            await Axios.post(`http://localhost:3000/reading-list`, form, {
-                headers : {
-                    Authorization: `Bearer ${localStorage.getItem('access_token')}`
-                }
-            })
+            if (!isLogin) {
+                toast.error('Reading list just for Member, please regester first', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
+            }else {
+
+                await Axios.post(`http://localhost:3000/reading-list`, form, {
+                    headers : {
+                        Authorization: `Bearer ${localStorage.getItem('access_token')}`
+                    }
+                })
+                toast.success('Success Add Book To Reading List!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
+            }
         } catch (error) {
             console.log(error);        
         }

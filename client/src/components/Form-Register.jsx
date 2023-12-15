@@ -1,6 +1,8 @@
 import Axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {toast } from 'react-toastify';
+
 
 export default function FormRegister() {
     const [form, setForm] = useState({
