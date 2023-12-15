@@ -5,7 +5,7 @@ import {setBooks} from './bookSlice'
 export const fetchBooks = async () => {
  return async (dispatch) => {
     try {
-        const { data } = await Axios.get(`http://localhost:3000/reading-list`, {
+        const { data } = await Axios.get(`https://library.wahyuragil.my.id/reading-list`, {
             headers : {
                 Authorization: `Bearer ${localStorage.getItem('access_token')}`
             }

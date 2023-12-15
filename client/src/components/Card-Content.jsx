@@ -12,10 +12,10 @@ export default function CardContent() {
     const fetchBooks = async (search) => {
         try {
             if (search) {
-                const { data } = await Axios.get(`http://localhost:3000/books?q=${search}`)
+                const { data } = await Axios.get(`https://library.wahyuragil.my.id/books?q=${search}`)
                 setBooks(data.items)
             }else{
-                const { data } = await Axios.get(`http://localhost:3000/books`)
+                const { data } = await Axios.get(`https://library.wahyuragil.my.id/books`)
                 setBooks(data.items)
             }
         } catch (error) {

@@ -11,7 +11,7 @@ export default function CardContentCms() {
     const [books, setBooks] = useState([])
     const fetchBooks = async () => {
         try {
-            const { data } = await Axios.get(`http://localhost:3000/reading-list`, {
+            const { data } = await Axios.get(`https://library.wahyuragil.my.id/reading-list`, {
                 headers : {
                     Authorization: `Bearer ${localStorage.getItem('access_token')}`
                 }

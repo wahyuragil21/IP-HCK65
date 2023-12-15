@@ -16,7 +16,7 @@ export default function FormRegister() {
     const handleAddUser = async (event) => {
         event.preventDefault()
         try {
-            await Axios.post(`http://localhost:3000/users/register`, form)
+            await Axios.post(`https://library.wahyuragil.my.id/users/register`, form)
             navigate('/login')
 
         } catch (error) {
