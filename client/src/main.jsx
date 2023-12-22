@@ -5,8 +5,9 @@ import router from './Router'
 import { RouterProvider } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { store } from './store'
 import { Provider } from 'react-redux'
+import { store } from './store'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

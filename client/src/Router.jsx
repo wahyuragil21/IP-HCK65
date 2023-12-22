@@ -6,6 +6,9 @@ import LoginPage from "./pages/Login-Page";
 import UserPage from "./pages/User-Page";
 import DetailPage from "./pages/Detail-Page";
 import RegisterPage from "./pages/Register-Page";
+import UpdatePage from "./pages/Update-Profile-Page";
+import WelcomePage from "./pages/Welcome-Page";
+import VerifyEmail from "./components/Verify-Email";
 
 
 const authen = () => {
@@ -47,9 +50,22 @@ const router = createBrowserRouter([
     loader: authen
   },
   {
+    path: "/my-profile",
+    element: <UpdatePage />,
+    loader: authen
+  },
+  {
+    path: "/welcome",
+    element: <WelcomePage />,
+    loader: authen
+  },
+  {
     path: "/book-detail/:id",
     element: <DetailPage />,
-    // loader : authen
+  },
+  {
+    path: "/verify-email",
+    element: <VerifyEmail />,
   },
 ]);
 

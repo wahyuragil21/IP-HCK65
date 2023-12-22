@@ -1,7 +1,6 @@
 module.exports = (error, req, res, next) => {
     let status;
     let message;
-
     switch (error.name) {
         case 'SequelizeValidationError':
         case 'SequelizeUniqueConstraintError':
@@ -9,39 +8,40 @@ module.exports = (error, req, res, next) => {
             message = error.errors.map(el => {
                 return el.message
             })
-        break;
-        
-        case 'EmailAndPassRequired':
+            break;
+
+        case 'EmailorPasswordRequired':
             status = 400
             message = 'Email and Password is Required'
-        break;
+            break;
 
         case 'NotFound':
             status = 404
             message = 'Not Found'
-        break;
+            break;
 
         case 'InvalidToken':
         case 'JsonWebTokenError':
             status = 401
             message = 'Unauthorized'
-        break;
+            break;
 
         case 'Forbidden':
             status = 403
             message = 'Forbidden Access'
-        break;
+            break;
 
         case 'InvalidAccount':
             status = 401
             message = 'Invalid Email or Password'
-        break;
-        
+            break;
+
         default:
             status = 500
             message = 'Internal server error'
-        break;
+            break;
     }
+    res.status(status).json({ message })
 
-    res.status(status).json({message})
+    // console.log(message, '<<<<<<<<<<<<<<<');
 }

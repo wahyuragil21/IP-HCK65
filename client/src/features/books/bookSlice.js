@@ -10,8 +10,8 @@ export const bookSlice = createSlice({
   reducers: {
     setBooks: (state, action) => {
       state.books = action.payload
-    },
-  },
+    }
+  }
 })
 
 export const { setBooks  } = bookSlice.actions

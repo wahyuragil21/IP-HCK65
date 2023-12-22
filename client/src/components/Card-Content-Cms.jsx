@@ -1,45 +1,15 @@
-import { useEffect, useState } from "react"
-import Axios from "axios"
+import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { fetchBooks } from "../features/books/asyncAction"
+import { fetchBooks, handleDelete } from "../features/books/asyncAction"
+
+
 export default function CardContentCms() {
-    // const dispath = useDispatch()
-    // const books = useSelector((state) => state.books.books)
-    // console.log(books);
-
-
-    const [books, setBooks] = useState([])
-    const fetchBooks = async () => {
-        try {
-            const { data } = await Axios.get(`https://library.wahyuragil.my.id/reading-list`, {
-                headers : {
-                    Authorization: `Bearer ${localStorage.getItem('access_token')}`
-                }
-            })
-            setBooks(data)
-            // console.log(data);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    const handleDelete = async (id) => {
-        try {
-            await Axios.delete(`http://localhost:3000/reading-list/${id}`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('access_token')}`
-                }
-            })
-            fetchBooks()
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
-
+    const dispatch = useDispatch()
+    const books = useSelector((state) => state.books.books)
+    
 
     useEffect(() => {
-        // dispath(fetchBooks())
-        fetchBooks()
+        dispatch(fetchBooks())
     }, [])
 
     return (
@@ -66,7 +36,7 @@ export default function CardContentCms() {
                                 type="button">
                                 Read
                             </button></a>
-                                <button onClick={() => handleDelete(books.id)}
+                                <button onClick={() => dispatch(handleDelete(books.id))}
                                 className="ml-1 justify-end align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg shadow-gray-900/10 hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85] active:shadow-none block w-full bg-black text-white shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
                                 type="button">
                                 Done

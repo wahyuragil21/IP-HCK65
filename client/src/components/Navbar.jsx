@@ -21,7 +21,7 @@ export default function Navbar() {
                             <Link to="/dashboard">
                                 {isLogin && (
                                     <div>
-                                          <Link to='/login' className="flex items-center transition-colors hover:text-blue-500">
+                                          <Link to='/login' className="flex items-center cursor-pointer py-2 px-3 font-sans text-base font-semibold leading-relaxed tracking-normal text-inherit antialiased transition duration-300 ease-in-out hover:bg-white hover:text-black rounded-md">
                                         <BiSolidDashboard className="mr-1" />
                                         Dashboard
                                     </Link>
@@ -31,18 +31,17 @@ export default function Navbar() {
 
                             {!isLogin && (
                                 <>
-                                    <Link to="/register" className="flex items-center transition-colors hover:text-blue-500">
+                                    <Link to="/register" className="flex items-center cursor-pointer py-2 px-3 font-sans text-base font-semibold leading-relaxed tracking-normal text-inherit antialiased transition duration-300 ease-in-out hover:bg-white hover:text-black rounded-md">
                                         <RiUserShared2Fill className="mr-1" />
                                         Sign Up
                                     </Link>
 
-                                    <Link to='/login' className="flex items-center transition-colors hover:text-blue-500">
+                                    <Link to='/login' className="flex items-center cursor-pointer py-2 px-3 font-sans text-base font-semibold leading-relaxed tracking-normal text-inherit antialiased transition duration-300 ease-in-out hover:bg-white hover:text-black rounded-md">
                                         <LuLogIn className="mr-1" />
                                         Login
                                     </Link>
                                 </>
                             )}
-                            {/* <Link to="/register" className="flex items-center transition-colors hover:text-blue-500"><RiUserShared2Fill className="mr-1" />Sign Up</Link> <Link to='/login' className="flex items-center transition-colors hover:text-blue-500"><LuLogIn className="mr-1" />Login</Link> */}
                         </ul>
                     </div>
                 </div>

@@ -3,7 +3,6 @@ import CardContent from "../components/Card-Content";
 import CarouselWithContent from "../components/Carrousel";
 import Categories from "../components/Categories";
 import Navbar from "../components/Navbar";
-import Pagination from "../components/Pagination";
 
 export default function HomePage() {
     return (
@@ -13,7 +12,6 @@ export default function HomePage() {
             <CarouselWithContent />
             <Categories/>
             <CardContent/>
-            <Pagination/>
         </>
     )
 }
