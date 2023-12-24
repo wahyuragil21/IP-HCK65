@@ -12,7 +12,6 @@ export default function DetailBook() {
     const fatchBooks = async () => {
         try {
             const { data } = await Axios.get(`https://library.wahyuragil.my.id/books/${id}`)
-            console.log(data);
             setBooks(data)
         } catch (error) {
             console.log(error);
@@ -40,7 +39,7 @@ export default function DetailBook() {
                     });
             }else {
 
-                await Axios.post(`http://localhost:3000/reading-list`, form, {
+                await Axios.post(`https://library.wahyuragil.my.id/reading-list`, form, {
                     headers : {
                         Authorization: `Bearer ${localStorage.getItem('access_token')}`
                     }
@@ -66,7 +65,7 @@ export default function DetailBook() {
   
 
     const handleOnUpgrade = async () => {
-        const { data } = await Axios.get("http://localhost:3000/payment/midtrans/initiate", {
+        const { data } = await Axios.get("https://library.wahyuragil.my.id/payment/midtrans/initiate", {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("access_token")}`
             }
@@ -78,7 +77,7 @@ export default function DetailBook() {
                     orderId: data.orderId
                 }
                 await Axios.patch(
-                    "http://localhost:3000/users/me/upgrade",
+                    "https://library.wahyuragil.my.id/users/me/upgrade",
                     requestBody,
                     {
                         headers: {
