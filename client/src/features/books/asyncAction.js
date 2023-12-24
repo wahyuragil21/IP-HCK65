@@ -5,7 +5,7 @@ import {setBooks} from './bookSlice'
 export const fetchBooks = () => {
  return async (dispatch) => {
     try {
-        const { data } = await Axios.get(`http://localhost:3000/reading-list`, {
+        const { data } = await Axios.get(`https://library.wahyuragil.my.id/reading-list`, {
             headers : {
                 Authorization: `Bearer ${localStorage.getItem('access_token')}`
             }
@@ -21,7 +21,7 @@ export const fetchBooks = () => {
 export const handleDelete = (bookId) => {
     return async (dispatch) => {
         try {
-            await Axios.delete(`http://localhost:3000/reading-list/${bookId}`, {
+            await Axios.delete(`https://library.wahyuragil.my.id/reading-list/${bookId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('access_token')}`
                 }

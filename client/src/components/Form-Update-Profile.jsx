@@ -11,7 +11,7 @@ export default function FormUpdate() {
     const handleUpdate = async (event) => {
         event.preventDefault()
         try {
-            await Axios.put('http://localhost:3000/users', form, {
+            await Axios.put('https://library.wahyuragil.my.id/users', form, {
                 headers : {
                     Authorization: `Bearer ${localStorage.getItem('access_token')}`
                 }
@@ -35,7 +35,7 @@ export default function FormUpdate() {
 
     const fetchData = async () => {
         try {
-            let {data} = await Axios.get(`http://localhost:3000/users`, {
+            let {data} = await Axios.get(`https://library.wahyuragil.my.id/users`, {
                 headers : {
                   Authorization: `Bearer ${localStorage.getItem('access_token')}`
                 }

@@ -11,7 +11,7 @@ export default function DetailBook() {
 
     const fatchBooks = async () => {
         try {
-            const { data } = await Axios.get(`http://localhost:3000/books/${id}`)
+            const { data } = await Axios.get(`https://library.wahyuragil.my.id/books/${id}`)
             console.log(data);
             setBooks(data)
         } catch (error) {

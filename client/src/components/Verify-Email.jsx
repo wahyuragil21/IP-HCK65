@@ -12,7 +12,7 @@ const VerifyEmail = () => {
                 const token = query.get('token');
 
                 if (token) {
-                    await Axios.get(`http://localhost:3000/users/verify-email?token=${token}`);
+                    await Axios.get(`https://library.wahyuragil.my.id/users/verify-email?token=${token}`);
                     console.log('Email verified successfully');
                     navigate('/login')
                 }

@@ -15,7 +15,7 @@ export default function CardContent() {
     const fetchBooks = async () => {
         try {
             const startIndex = (currentPage - 1) * itemsPerPage;
-            const { data } = await Axios.get(`http://localhost:3000/books`, {
+            const { data } = await Axios.get(`https://library.wahyuragil.my.id/books`, {
                 params: { q: search, startIndex, maxResults: itemsPerPage }
             });
             setBooks(data.items);

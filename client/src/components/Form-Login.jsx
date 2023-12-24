@@ -11,7 +11,7 @@ export default function FormLogin() {
     const navigate = useNavigate()
     const handleCredentialResponse = async (response) => {
         const google_token = response.credential
-        const {data} = await Axios.post("http://localhost:3000/users/google-login", {google_token : google_token})
+        const {data} = await Axios.post("https://library.wahyuragil.my.id/users/google-login", {google_token : google_token})
         localStorage.setItem('access_token', data.access_token)
         toast.success('Login Success!', {
             position: "top-right",
@@ -42,7 +42,7 @@ export default function FormLogin() {
         event.preventDefault()
 
         try {
-            const { data } = await Axios.post("http://localhost:3000/users/login", form)
+            const { data } = await Axios.post("https://library.wahyuragil.my.id/users/login", form)
             localStorage.setItem("access_token", data.access_token)
             toast.success('Login Success!', {
                 position: "top-right",
